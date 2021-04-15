@@ -1,16 +1,12 @@
 package com.example.demo.dao;
 
-
-import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Repository
 public class UserDaoImp implements UserDao {
@@ -40,40 +36,14 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void delete(int id) {
-        em.remove(get(id));
+    public void delete(User user) {
+        em.remove(user);
     }
 
     @Override
     public User loadUserByUsername(String username) {
         return em.createQuery("FROM User user WHERE user.username = :username", User.class)
                 .setParameter("username", username).getSingleResult();
-    }
-
-    @Override
-    public List<Role> getAllRoles() {
-        TypedQuery<Role> typedQuery = em.createQuery("from Role", Role.class);
-        return typedQuery.getResultList();
-    }
-
-    @Override
-    public Role findRoleByName(String role) {
-        return em.createQuery("FROM Role role WHERE role.role = :role", Role.class)
-                .setParameter("role", role).getSingleResult();
-    }
-
-    @Override
-    public Set<Role> getSetRole(String[] roles) {
-        Set<Role> roleSet = new HashSet<>();
-        for (String r : roles) {
-            roleSet.add(findRoleByName(r));
-        }
-        return roleSet;
-    }
-
-    @Override
-    public Set<Role> getRolesByUser(User user) {
-        return user.getAuthorities();
     }
 
 }

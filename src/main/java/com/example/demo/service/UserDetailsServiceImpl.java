@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.dao.UserDao;
-import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,11 +9,10 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @Transactional
-public class UserDetailsServiceImpl implements UserServiceIn, UserDetailsService {
+public class UserDetailsServiceImpl implements UserService, UserDetailsService {
 
     private UserDao userDao;
 
@@ -55,33 +53,13 @@ public class UserDetailsServiceImpl implements UserServiceIn, UserDetailsService
     }
 
     @Override
-    public void delete(int id) {
-        userDao.delete(id);
+    public void delete(User user) {
+        userDao.delete(user);
     }
 
     @Override
     public User loadUserByUsername(String login) {
         return userDao.loadUserByUsername(login);
-    }
-
-    @Override
-    public List<Role> getAllRoles() {
-        return userDao.getAllRoles();
-    }
-
-    @Override
-    public Role findRoleByName(String role) {
-        return userDao.findRoleByName(role);
-    }
-
-    @Override
-    public Set<Role> getSetRole(String[] roles) {
-        return userDao.getSetRole(roles);
-    }
-
-    @Override
-    public Set<Role> getRolesByUser(User user) {
-        return userDao.getRolesByUser(user);
     }
 
 }
