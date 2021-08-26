@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="webjars/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="webjars/bootstrap/5.0.1/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+    <div class="card">
+
+        <div class="card-block">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Country</th>
+                    <th>Capital</th>
+
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr th:each="country :${data.content}">
+                    <td th:text="${country.id}"></td>
+                    <td th:text="${country.name}"></td>
+                    <td th:text="${country.capital}"></td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

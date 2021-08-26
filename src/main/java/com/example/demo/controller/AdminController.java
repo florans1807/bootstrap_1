@@ -24,8 +24,9 @@ public class AdminController {
 
     //1
     @GetMapping
-    public String getAdminInfo(Model model) {
+    public String getAdminInfo(@ModelAttribute("modalUser") User user, Model model) {
         model.addAttribute("users", userService.getAll());
+        model.addAttribute("allRoles", roleService.getAllRoles());
         return "admin_info";
     }
 
@@ -69,7 +70,7 @@ public class AdminController {
         return "edit";
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/update")    //{id}
     public String update(@ModelAttribute("user") User user
             , @RequestParam("role") String[] roles) {
 
