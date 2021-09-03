@@ -9,5 +9,5 @@ import java.util.Set;
 public interface RoleService {
     List<Role> getAllRoles();
     Role findRoleByName(String role);
-    Set<Role> getSetRole(String[] roles);
+    Set<Role> getSetOfRolesFromList(String[] roles);
 }

@@ -33,7 +33,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Set<Role> getSetRole(String[] roles) {
+    public Set<Role> getSetOfRolesFromList(String[] roles) {
         Set<Role> roleSet = new HashSet<>();
         for (String r : roles) {
             roleSet.add(findRoleByName(r));

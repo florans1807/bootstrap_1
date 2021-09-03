@@ -30,6 +30,25 @@ public class AdminController {
         return "admin_info";
     }
 
+    @PostMapping("/update")    //{id}
+    public String update(@RequestParam("id") int id
+            , @RequestParam("name") String name, @RequestParam("surname") String surname
+            , @RequestParam("username") String username, @RequestParam("password") String password
+            , @RequestParam("role") String[] roles) {
+
+        User user = userService.get(id);
+        user.setName(name);
+        user.setSurname(surname);
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setRoles(roleService.getSetOfRolesFromList(roles));
+        userService.update(user);
+        return "redirect:/admin";
+    }
+
+
+
+
     //2
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
@@ -54,10 +73,9 @@ public class AdminController {
 
     //8
     @PostMapping(value="/add")
-    public String create(@ModelAttribute("user") User user
-            , @RequestParam("role") String[] roles) {
+    public String create(@ModelAttribute("user") User user, @RequestParam("role") String[] roles) {
 
-        user.setRoles(roleService.getSetRole(roles));
+        user.setRoles(roleService.getSetOfRolesFromList(roles));
         userService.add(user);
         return "redirect:/admin";
     }
@@ -70,12 +88,12 @@ public class AdminController {
         return "edit";
     }
 
-    @PostMapping("/update")    //{id}
-    public String update(@ModelAttribute("user") User user
+    /*@PostMapping("/update")    //{id}
+    public String update(@ModelAttribute("updatedUser") User user
             , @RequestParam("role") String[] roles) {
 
         user.setRoles(roleService.getSetRole(roles));
         userService.update(user);
         return "redirect:/admin";
-    }
+    }*/
 }

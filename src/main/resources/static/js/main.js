@@ -1,6 +1,8 @@
-/*$(document).ready(function () {
-    $('.table .btn').on('click', function (event) {
-        event.preventDefault();
+/*
+$(document).ready(function(){
+
+    $('.table .eBtn').on('click',function(event){
+        /!*event.preventDefault();
         var href = $(this).attr('href');
         $.get(href, function (user, status) {
             $('#id').val(user.id);
@@ -9,10 +11,12 @@
             $('#username').val(user.username);
             $('#password').val(user.password);
             $('#roles').val(user.roles);
-        });
-        $('#exampleModal').modal();
+        });*!/
+
+        $('.myForm #editModal').modal();
     });
-});*/
+});
+*/
 
 
 

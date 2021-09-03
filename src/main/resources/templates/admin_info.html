@@ -75,34 +75,29 @@
                         <form th:method="POST" th:action="@{/admin/update}">
 
                             <div class="form-group">
-                                <label for="id"
-                                       class="col-form-label">ID:</label>
-                                <input type="text" class="form-control"
-                                       id="id" th:name="id" th:value="*{user.id}">
+                                <label for="id" class="col-form-label">ID:</label>
+                                <input type="text" class="form-control" id="id"
+                                       th:name="id" th:value="*{user.id}">
                             </div>
                             <div class="form-group">
-                                <label for="name"
-                                       class="col-form-label">
-                                    Name:</label>
-                                <input type="text" class="form-control"
-                                       id="name" th:name="name" th:value="*{user.name}">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="name"
+                                       th:name="name" th:value="*{user.name}">
                             </div>
                             <div class="form-group">
-                                <label for="surname"
-                                       class="col-form-label">Last Name:</label>
-                                <input type="text" class="form-control"
-                                       id="surname" th:name="surname" th:value="*{user.surname}">
+                                <label for="surname" class="col-form-label">Last Name:</label>
+                                <input type="text" class="form-control" id="surname"
+                                       th:name="surname" th:value="*{user.surname}">
                             </div>
                             <div class="form-group">
-                                <label for="username"
-                                       class="col-form-label">Username:</label>
-                                <input type="text" class="form-control"
-                                       id="username" th:name="username" th:value="*{user.username}">
+                                <label for="username" class="col-form-label">Username:</label>
+                                <input type="text" class="form-control" id="username"
+                                       th:name="username" th:value="*{user.username}">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-form-label">Password:</label>
-                                <input type="text" class="form-control"
-                                       id="password" th:name="password" th:value="*{user.password}">
+                                <input type="text" class="form-control" id="password"
+                                       th:name="password" th:value="*{user.password}">
                             </div>
                             <div class="form-group">
                                 <label for="editRoles" class="col-form-label">Role:</label>
@@ -117,7 +112,6 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                       <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
                         <button type="submit" class="btn btn-primary" data-dismiss="modal">Edit</button>
                     </div>
                 </div>
