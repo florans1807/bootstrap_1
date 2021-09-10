@@ -69,30 +69,4 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-
-
-
-    //2
-    @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.get(id));
-        return "show";
-    }
-
-
-    @GetMapping("/new")
-    public String newPerson(Model model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("allRoles", roleService.getAllRoles());
-        return "new";
-    }
-
-    //4
-    @GetMapping("/{id}/edit")
-    public String edit(Model model1, @PathVariable("id") int id) {
-        model1.addAttribute("user", userService.get(id));
-        model1.addAttribute("allRoles", roleService.getAllRoles());
-        return "edit";
-    }
-
 }
