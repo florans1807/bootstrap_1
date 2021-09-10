@@ -62,8 +62,7 @@ public class User implements UserDetails {
         this.username = username;
     }
 
-
-    public List<String> testToGetRole(Set<Role> set) {
+    public List<String> getRole(Set<Role> set) {
         List<String> list = new ArrayList<>();
         Iterator<Role> it = set.iterator();
         while (it.hasNext()) {
